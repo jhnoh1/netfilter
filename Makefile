@@ -1,12 +1,12 @@
 #Makefile
-CC = gcc
-CFLAGS = -Wall -Wextra -O2
-LDFLAGS = -lnetfilter_queue
+CC=gcc
+CFLAGS=-Wall
+
+all: nfqnl_test
 
 nfqnl_test: nfqnl_test.c
-	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
+    $(CC) $(CFLAGS) -o nfqnl_test nfqnl_test.c -lnetfilter_queue
 
-.PHONY: clean
 clean:
-	rm -f nfqnl_test
+    rm -f nfqnl_test
 
