@@ -6,7 +6,7 @@
 #include <linux/netfilter.h>		/* for NF_ACCEPT */
 #include <errno.h>
 #include <regex.h>
-
+#include <string.h>
 #include <libnetfilter_queue/libnetfilter_queue.h>
 
 void dump(unsigned char* buf, int size) {
@@ -75,7 +75,7 @@ static u_int32_t print_pkt (struct nfq_data *tb, char* host)
 		printf("payload_len=%d\n", ret);
 
 	fputc('\n', stdout);
-	char *input = (char*)data
+	char *input = (char*)data;
 	if (regcomp(&regex, pattern, REG_EXTENDED) != 0) {
         printf("Failed to compile regex\n");
         return id;
